@@ -1,3 +1,4 @@
+"""
 Buy a Vineyard Assignment (Part 1)
 ----------------------------------
 Introduction
@@ -52,6 +53,8 @@ winedata = np.loadtxt('winedata.csv', delimiter=',', skiprows=1)
 DomainVal = winedata[:,0:12]
 RangeVal = winedata[:,11:12]
 x_train, x_test, y_train, y_test = train_test_split(DomainVal, RangeVal, test_size= 0.25, random_state=42)
+
+# Scale data
 objectss= StandardScaler()
 objectmm = MinMaxScaler()
 X_train_ssscaled = objectss.fit_transform(x_train)
@@ -60,6 +63,8 @@ X_train_mmscaled = objectmm.transform(x_train)
 X_test_ssscaled = objectss.fit_transform(x_test)
 objectmm.fit(x_test)
 X_test_mmscaled = objectmm.transform(x_test)
+
+# Print
 print(x_test[0:4,0:12])
 print(X_test_ssscaled[0:4,0:12]) 
 print(X_test_mmscaled[0:4,0:12])
